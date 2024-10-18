@@ -155,10 +155,10 @@ class Mqtt:
 
     def reconnect(self) -> None:
         """Reconnect a client that was previously connected and was disconnected."""
-        _LOGGER.debug("Scheduling to reconnect MQTT.")
-
         if not self.should_reconnect:
             return
+
+        _LOGGER.debug("Scheduling to reconnect MQTT.")
 
         if not self.user_id or not self.vehicles:
             raise NotConnectedError
